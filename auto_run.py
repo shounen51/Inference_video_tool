@@ -28,8 +28,8 @@ from lines import *
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-        self.event = btn_events(self)
-        self.ui = A_form(self, self, self.event)
+        self.btn_events = btn_events(self)
+        self.ui = A_form(self, self, self.btn_events)
         self._listmodel()
         self.set_visible(False)
 
@@ -44,9 +44,15 @@ class MainWindow(QMainWindow):
                       QMessageBox.Yes| QMessageBox.No)
         event.ignore()
         if result == QMessageBox.Yes:
-            self.event.update_TB("\nNow closing....\n")
-            self.event.cmdThread.kill()
-            self.event.cmdThread.wait()
+            self.btn_events.update_TB("\nNow closing....\n")
+            self.btn_events.weight_checker.kill()
+            self.btn_events.GPU_checker.kill()
+            self.btn_events.NAS_copyer.kill()
+            self.btn_events.cmdThread.kill()
+            self.btn_events.weight_checker.wait()
+            self.btn_events.GPU_checker.wait()
+            self.btn_events.NAS_copyer.wait()
+            self.btn_events.cmdThread.wait()
             event.accept()
 
     def set_visible(self, v = False):

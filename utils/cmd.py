@@ -42,12 +42,11 @@ class cmd(QThread):
             self.textSignal.emit(LINE_find_no_weight)
             return
         elif len(weights) == 1:
-            self.args[self.founc]["--weights"] = weights[0]
+            self.args[self.founc]["--weights"] = os.path.join(weight_path, weights[0])
         else:
             weights.sort()
             for i, w in enumerate(weights):
                 self.args[self.founc][f"--weights{str(i+1)}"] = os.path.join(weight_path, w)
-        
         
         for k in self.args[self.founc]:
             self.command += " "

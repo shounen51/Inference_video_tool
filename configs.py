@@ -7,10 +7,19 @@ video_type = ['mp4','avi','mkv','jpg','jpeg','png']
 wight_type = ['pt', 'pth', 'tar']
 
 functions = {
-    "action":"python3 /home/ubuntu/work/yolov5_ori/detect_action_4auto.py",
-    "wheelchair":""
+    "HD":"python3 /home/ubuntu/work/yolov5_ori/detect_4auto.py",
+    # "HD":"python3 /mnt/code/yolov5_ori/detect_4auto.py",
+    "action":"python3 /mnt/code/yolov5_ori/detect_action_4auto.py",
+    # "wheelchair":""
 }
 args = {
+    "HD":{
+        "--weights":"",
+        "--source": "",
+        "--conf-thres":0.55,
+        "--hide-labels":"",
+        "--hide-conf":""
+        },
     "action":{
         "--weights1":"",
         "--weights2":"",
