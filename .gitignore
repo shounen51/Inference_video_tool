@@ -6,8 +6,22 @@ __pycache__/
 # C extensions
 *.so
 
+#videos
+*.mp4
+*.avi
+*.mkv
+*.jpg
+*.jpeg
+# *.png
+
+# weights
+*.pt
+*.pth
+*.tar
+
 # Distribution / packaging
 .Python
+dataset/
 build/
 develop-eggs/
 dist/
