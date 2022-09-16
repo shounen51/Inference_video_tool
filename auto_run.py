@@ -49,9 +49,6 @@ class MainWindow(QMainWindow):
             self.btn_events.GPU_checker.kill()
             self.btn_events.NAS_copyer.kill()
             self.btn_events.cmdThread.kill()
-            self.btn_events.weight_checker.wait(2000)
-            self.btn_events.GPU_checker.wait(2000)
-            self.btn_events.NAS_copyer.wait(2000)
             self.btn_events.cmdThread.wait()
             event.accept()
 
